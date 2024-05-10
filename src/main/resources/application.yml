@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: API Renault
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: myuser
+    password: secret
+
+  liquibase:
+    changeLog: classpath:changelog/db.changelog-master.yml
+    enabled: ${ENABLED_LIQUEBASE:true}
+
+  springfox:
+    documentation:
+      swagger-ui:
+        enabled: false
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
