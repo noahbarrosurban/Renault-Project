@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_001
+      author: Noah Barros
+      changes:
+        - createTable:
+            tableName: pilots
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                      nullable: false
+                      primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                      nullable: false
