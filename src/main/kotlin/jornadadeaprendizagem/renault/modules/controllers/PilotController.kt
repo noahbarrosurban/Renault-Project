@@ -6,9 +6,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import jornadadeaprendizagem.renault.models.entities.Pilot
 import jornadadeaprendizagem.renault.modules.services.PilotService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @Api(value = "Pilot", description = "Pilot Controller")
@@ -36,7 +34,7 @@ class PilotController (private val pilotService: PilotService){
         return pilotService.findById(id)
     }
 
-    @GetMapping
+    @PostMapping
     @Operation(summary = "Save a pilot")
     @ApiResponses(value = [
         ApiResponse(responseCode = 200.toString(), description = "OK"),
@@ -46,7 +44,7 @@ class PilotController (private val pilotService: PilotService){
         return pilotService.save(pilot)
     }
 
-    @GetMapping
+    @PutMapping
     @Operation(summary = "Update a pilot")
     @ApiResponses(value = [
         ApiResponse(responseCode = 200.toString(), description = "OK"),
@@ -56,7 +54,7 @@ class PilotController (private val pilotService: PilotService){
         return pilotService.update(id, pilot)
     }
 
-    @GetMapping
+    @DeleteMapping
     @Operation(summary = "Delete a pilot")
     @ApiResponses(value = [
         ApiResponse(responseCode = 200.toString(), description = "OK"),
