@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface PilotRepository : JpaRepository<Pilot, UUID> {
-}
+interface PilotRepository : JpaRepository<Pilot, UUID>

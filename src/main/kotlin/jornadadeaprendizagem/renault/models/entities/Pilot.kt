@@ -22,5 +22,6 @@ open class Pilot (
 
     constructor(pilotDTO: PilotDTO) : this(
             id = UUID.randomUUID(),
-            name = pilotDTO.name)
+            name = pilotDTO.name
+    )
 }

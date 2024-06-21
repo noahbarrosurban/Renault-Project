@@ -3,6 +3,8 @@ package jornadadeaprendizagem.renault.models.dtos
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
+import jakarta.validation.constraints.Email
+import jornadadeaprendizagem.renault.models.entities.Pilot
 import java.util.*
 
 @ApiModel(
@@ -18,5 +20,10 @@ data class PilotDTO (
         @JsonProperty("name")
         val name : String
 ) {
+
+    constructor(pilot: Pilot) : this(
+            id = pilot.id,
+            name = pilot.name
+    )
 
 }

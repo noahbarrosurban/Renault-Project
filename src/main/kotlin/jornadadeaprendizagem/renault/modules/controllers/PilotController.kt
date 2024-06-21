@@ -4,6 +4,7 @@ import io.swagger.annotations.Api
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
+import jornadadeaprendizagem.renault.models.dtos.PilotDTO
 import jornadadeaprendizagem.renault.models.entities.Pilot
 import jornadadeaprendizagem.renault.modules.services.PilotService
 import org.springframework.web.bind.annotation.*
@@ -20,7 +21,7 @@ class PilotController (private val pilotService: PilotService){
         ApiResponse(responseCode = 200.toString(), description = "Ok"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun getAllPilots() : List<Pilot> {
+    fun getAllPilots() : List<PilotDTO> {
         return pilotService.findAll()
     }
 
@@ -30,7 +31,7 @@ class PilotController (private val pilotService: PilotService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun getPilotById(id: UUID) : Pilot {
+    fun getPilotById(id: UUID) : PilotDTO {
         return pilotService.findById(id)
     }
 
@@ -40,7 +41,7 @@ class PilotController (private val pilotService: PilotService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun savePilot(pilot: Pilot) : Pilot {
+    fun savePilot(pilot: Pilot) : PilotDTO {
         return pilotService.save(pilot)
     }
 
@@ -50,7 +51,7 @@ class PilotController (private val pilotService: PilotService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun updatePilot(id: UUID, pilot: Pilot) : Pilot {
+    fun updatePilot(id: UUID, pilot: Pilot) : PilotDTO {
         return pilotService.update(id, pilot)
     }
 
