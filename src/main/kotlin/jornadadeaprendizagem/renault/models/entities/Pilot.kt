@@ -5,7 +5,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import jornadadeaprendizagem.renault.models.dtos.PilotDTO
+import jornadadeaprendizagem.renault.models.dtos.ResponsePilotDTO
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.util.*
 
@@ -20,8 +20,8 @@ open class Pilot (
         @Column(name = "name")
         val name : String){
 
-    constructor(pilotDTO: PilotDTO) : this(
+    constructor(responsePilotDTO: ResponsePilotDTO) : this(
             id = UUID.randomUUID(),
-            name = pilotDTO.name
+            name = responsePilotDTO.name
     )
 }

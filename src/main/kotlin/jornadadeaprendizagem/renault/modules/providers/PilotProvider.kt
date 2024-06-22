@@ -7,21 +7,23 @@ import java.util.*
 
 @Component
 class PilotProvider (private val pilotRepository: PilotRepository) {
+
+    fun create(pilot: Pilot): Pilot {
+        return pilotRepository.save(pilot)
+    }
+
+    //read
     fun findAll(): List<Pilot> {
         return pilotRepository.findAll()
     }
 
+    //read
     fun findById(id: UUID): Pilot {
         return pilotRepository.findById(id).orElseThrow()
     }
 
-    fun save(pilot: Pilot): Pilot {
-        return pilotRepository.save(pilot)
-    }
-
     fun update(id: UUID, pilot: Pilot): Pilot {
-        val pilotUpdate = pilotRepository.findById(id).orElseThrow()
-        return pilotRepository.save(pilotUpdate)
+        return pilotRepository.save(pilot)
     }
 
     fun delete(id: UUID){
