@@ -1,6 +1,6 @@
 package jornadadeaprendizagem.renault.modules.services
 
-import jornadadeaprendizagem.renault.models.dtos.ResponseActionDTO
+import jornadadeaprendizagem.renault.models.dtos.action.ResponseActionDTO
 import jornadadeaprendizagem.renault.models.entities.Action
 import jornadadeaprendizagem.renault.modules.providers.ActionProvider
 import org.springframework.stereotype.Service

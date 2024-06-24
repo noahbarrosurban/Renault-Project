@@ -4,7 +4,8 @@ import io.swagger.annotations.Api
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
-import jornadadeaprendizagem.renault.models.dtos.ResponsePilotDTO
+import jornadadeaprendizagem.renault.models.dtos.pilot.RequestPilotDTO
+import jornadadeaprendizagem.renault.models.dtos.pilot.ResponsePilotDTO
 import jornadadeaprendizagem.renault.models.entities.Pilot
 import jornadadeaprendizagem.renault.modules.services.PilotService
 import org.springframework.web.bind.annotation.*
@@ -21,8 +22,8 @@ class PilotController (private val pilotService: PilotService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun createPilot(pilot: Pilot) : ResponsePilotDTO {
-        return pilotService.create(pilot)
+    fun createPilot(requestPilotDTO : RequestPilotDTO) : ResponsePilotDTO {
+        return pilotService.create(requestPilotDTO)
     }
 
     //read
@@ -53,8 +54,8 @@ class PilotController (private val pilotService: PilotService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun updatePilot(id: UUID, pilot: Pilot) : ResponsePilotDTO {
-        return pilotService.update(id, pilot)
+    fun updatePilot(id: UUID, requestPilotDTO: RequestPilotDTO) : ResponsePilotDTO {
+        return pilotService.update(id, requestPilotDTO)
     }
 
     @DeleteMapping

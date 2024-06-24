@@ -12,6 +12,7 @@ databaseChangeLog:
                   constraints:
                       nullable: false
                       primaryKey: true
+                      autoIncrement: true
               - column:
                   name: name
                   type: varchar(255)

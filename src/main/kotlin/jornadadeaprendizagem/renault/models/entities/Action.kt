@@ -5,7 +5,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import jornadadeaprendizagem.renault.models.dtos.ResponseActionDTO
+import jornadadeaprendizagem.renault.models.dtos.action.ResponseActionDTO
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import org.springframework.format.annotation.DateTimeFormat
 import java.util.*
