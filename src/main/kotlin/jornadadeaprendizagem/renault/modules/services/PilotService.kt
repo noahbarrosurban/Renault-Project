@@ -12,10 +12,7 @@ class PilotService (private val pilotProvider: PilotProvider) {
     fun create(pilot: Pilot): ResponsePilotDTO = ResponsePilotDTO(pilotProvider.create(pilot))
 
     //read
-    fun findAll(): List<ResponsePilotDTO> {
-        return pilotProvider.findAll().map { pilot ->
-            ResponsePilotDTO(pilot)}
-    }
+    fun findAll(): List<ResponsePilotDTO> = pilotProvider.findAll().map { ResponsePilotDTO(it) }
 
     //read
     fun findById(id: UUID): ResponsePilotDTO = ResponsePilotDTO(pilotProvider.findById(id))

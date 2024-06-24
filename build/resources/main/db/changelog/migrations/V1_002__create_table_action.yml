@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_002
+      author: Noah Barros
+      changes:
+        - createTable:
+            tableName: actions
+            columns:
+              - column:
+                  name: id_action
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: estrategy
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: descaction
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: iniplainaction
+                  type: timestamp
+                  constraints:
+              - column:
+                  name: datealert
+                  type: timestamp
+                  constraints:
+              - column:
+                  name: timeresolution
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: commentary
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: capitalization
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
