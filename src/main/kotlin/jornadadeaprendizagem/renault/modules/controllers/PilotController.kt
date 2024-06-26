@@ -6,7 +6,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import jornadadeaprendizagem.renault.models.dtos.pilot.RequestPilotDTO
 import jornadadeaprendizagem.renault.models.dtos.pilot.ResponsePilotDTO
-import jornadadeaprendizagem.renault.models.entities.Pilot
 import jornadadeaprendizagem.renault.modules.services.PilotService
 import org.springframework.web.bind.annotation.*
 import java.util.*

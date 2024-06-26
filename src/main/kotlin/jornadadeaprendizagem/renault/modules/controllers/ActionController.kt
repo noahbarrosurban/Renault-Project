@@ -4,8 +4,8 @@ import io.swagger.annotations.Api
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
+import jornadadeaprendizagem.renault.models.dtos.action.RequestActionDTO
 import jornadadeaprendizagem.renault.models.dtos.action.ResponseActionDTO
-import jornadadeaprendizagem.renault.models.entities.Action
 import jornadadeaprendizagem.renault.modules.services.ActionService
 import org.springframework.web.bind.annotation.*
 import java.util.*
@@ -16,13 +16,13 @@ import java.util.*
 class ActionController (private val actionService: ActionService){
 
     @PostMapping
-    @Operation(summary = "Create a Action")
+    @Operation(summary = "Create a action")
     @ApiResponses(value = [
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun createAction(action: Action) : ResponseActionDTO {
-        return actionService.create(action)
+    fun createAction(requestActionDTO : RequestActionDTO) : ResponseActionDTO {
+        return actionService.create(requestActionDTO)
     }
 
     //read
@@ -53,8 +53,8 @@ class ActionController (private val actionService: ActionService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun updateAction(id: UUID, action: Action) : ResponseActionDTO {
-        return actionService.update(id, action)
+    fun updatePilot(id: UUID, requestActionDTO: RequestActionDTO) : ResponseActionDTO {
+        return actionService.update(id, requestActionDTO)
     }
 
     @DeleteMapping
@@ -63,7 +63,7 @@ class ActionController (private val actionService: ActionService){
         ApiResponse(responseCode = 200.toString(), description = "OK"),
         ApiResponse(responseCode = 401.toString(), description = "Unauthorized"),
         ApiResponse(responseCode = 404.toString(), description = "Not Found")])
-    fun deleteAction(id: UUID) {
+    fun deletePilot(id: UUID) {
         return actionService.delete(id)
     }
 }

@@ -8,7 +8,7 @@ import java.util.*
 @Component
 class ActionProvider (private val actionRepository: ActionRepository) {
 
-    fun create(action: Action): Action {
+    fun create(action : Action): Action {
         return actionRepository.save(action)
     }
 
@@ -22,7 +22,7 @@ class ActionProvider (private val actionRepository: ActionRepository) {
         return actionRepository.findById(id).orElseThrow()
     }
 
-    fun update(id: UUID, action: Action): Action {
+    fun update(id: UUID, action : Action): Action {
         return actionRepository.save(action)
     }
 

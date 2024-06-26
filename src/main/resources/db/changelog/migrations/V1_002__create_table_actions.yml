@@ -7,41 +7,41 @@ databaseChangeLog:
             tableName: actions
             columns:
               - column:
-                  name: id_action
+                  name: id
                   type: uuid
                   constraints:
-                    nullable: false
-                    primaryKey: true
+                      nullable: false
+                      primaryKey: true
+                      autoIncrement: true
               - column:
-                  name: estrategy
+                  name: strategy
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: descaction
+                  name: description
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: iniplainaction
+                  name: alertdate
                   type: timestamp
-                  constraints:
               - column:
-                  name: datealert
+                  name: startdate
                   type: timestamp
-                  constraints:
               - column:
-                  name: timeresolution
-                  type: float
-                  constraints:
-                    nullable: false
+                  name: enddate
+                  type: timestamp
               - column:
-                  name: commentary
+                  name: hour
+                  type: timestamp
+              - column:
+                  name: comment
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: capitalization
+                  name: captalization
                   type: varchar(255)
                   constraints:
                     nullable: false

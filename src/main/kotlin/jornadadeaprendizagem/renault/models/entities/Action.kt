@@ -1,10 +1,7 @@
 package jornadadeaprendizagem.renault.models.entities
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.EntityListeners
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
+import jornadadeaprendizagem.renault.models.dtos.action.RequestActionDTO
 import jornadadeaprendizagem.renault.models.dtos.action.ResponseActionDTO
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import org.springframework.format.annotation.DateTimeFormat
@@ -13,43 +10,58 @@ import java.util.*
 @Entity
 @EntityListeners(AuditingEntityListener::class)
 @Table(name = "actions")
-open class Action(
+open class Action (
     @Id
-    @Column(name = "id_action")
-    val id: UUID,
+    @Column(name = "id")
+    val id : UUID,
 
-    @Column(name = "estrategy")
-    val estrategy: String,
+    @Column(name = "strategy")
+    val strategy : String,
 
-    @Column(name = "descaction")
-    val descaction: String,
+    @Column(name = "description")
+    val description : String,
 
-    @Column(name = "iniplainaction")
+    @Column(name = "alertdate")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    val iniplainaction: Date = Date(),
+    val alertDate : Date?,
 
-    @Column(name = "datealert")
+    @Column(name = "startdate")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    val datealert: Date = Date(),
+    val startDate : Date?,
 
-    @Column(name = "timeresolution")
-    val timeresolution: Float = 0F,
+    @Column(name = "enddate")
+    val endDate : Date?,
 
-    @Column(name = "commentary")
-    val commentary: String,
+    @Column(name = "hour")
+    val hour : Date?,
 
-    @Column(name = "capitalization")
-    val capitalization: String
+    @Column(name = "comment")
+    val comment : String,
 
-) {
-    constructor(responseActionDTO: ResponseActionDTO) : this(
+    @Column(name = "captalization")
+    val captalization : String){
+
+    constructor(responseActionDTO : ResponseActionDTO) : this(
         id = UUID.randomUUID(),
-        estrategy = responseActionDTO.estrategy,
-        descaction = responseActionDTO.descaction,
-        iniplainaction = responseActionDTO.iniplainaction,
-        datealert =  responseActionDTO.datealert,
-        timeresolution =  responseActionDTO.timeresolution,
-        commentary =  responseActionDTO.commentary,
-        capitalization =  responseActionDTO.capitalization
+        strategy = responseActionDTO.strategy,
+        description = responseActionDTO.description,
+        alertDate = responseActionDTO.alertDate,
+        startDate = responseActionDTO.startDate,
+        endDate = responseActionDTO.endDate,
+        hour = responseActionDTO.hour,
+        comment = responseActionDTO.comment,
+        captalization = responseActionDTO.captalization
+    )
+
+    constructor(requestActionDTO: RequestActionDTO) : this(
+        id = UUID.randomUUID(),
+        strategy = requestActionDTO.strategy,
+        description = requestActionDTO.description,
+        alertDate = requestActionDTO.alertDate,
+        startDate = requestActionDTO.startDate,
+        endDate = requestActionDTO.endDate,
+        hour = requestActionDTO.hour,
+        comment = requestActionDTO.comment,
+        captalization = requestActionDTO.captalization
     )
 }
