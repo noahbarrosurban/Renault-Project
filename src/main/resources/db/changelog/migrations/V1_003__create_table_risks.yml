@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_003
+      author: Noah Barros
+      changes:
+        - createTable:
+            tableName: risks
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: type
+                  type: varchar(255)
+              - column:
+                  name: departament
+                  type: varchar(255)
+              - column:
+                  name: startdate
+                  type: timestamp
+              - column:
+                  name: consequence
+                  type: varchar(255)
+              - column:
+                  name: project
+                  type: varchar(255)
+              - column:
+                  name: metier
+                  type: varchar(255)
+              - column:
+                  name: jalon
+                  type: varchar(255)
+              - column:
+                  name: futurejalon
+                  type: varchar(255)
+              - column:
+                  name: probability
+                  type: varchar(255)
+              - column:
+                  name: impact
+                  type: varchar(255)
+              - column:
+                  name: classification
+                  type: varchar(255)
+              - column:
+                  name: generalimpact
+                  type: varchar(255)
+              - column:
+                  name: risksituation
+                  type: varchar(255)
