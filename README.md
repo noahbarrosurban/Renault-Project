@@ -35,12 +35,12 @@ Para continuar, atente aos pré-requisitos:
 
 ### Configuração do Gradle
 - Após a importação, aguarde o IntelliJ IDEA sincronizar e configurar o Gradle automaticamente. Isso pode levar alguns minutos.
-- Caso o Gradle não seja executado automaticamente, você pode forçar a execução clicando no menu superior em `Build`e `Build Project`.
+- Caso o Gradle não seja executado automaticamente, você pode forçar a execução clicando no menu superior em `Build -> Build Project`.
 
 ### Configuração do Docker
 
 - Para testar a aplicação com o banco de dados PostgreSQL, inicie o Docker Desktop. 
-- Atraves de um terminal, execute o comando abaixo na pasta raiz do projeto.
+- Através de um terminal, execute o comando abaixo na pasta raiz do projeto.
 
 ```shell
 docker compose up
