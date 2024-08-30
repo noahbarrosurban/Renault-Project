@@ -19,7 +19,16 @@ class ResidualRiskService (private val residualRiskProvider: ResidualRiskProvide
     //read
     fun findById(id: UUID): ResponseResidualRiskDTO = ResponseResidualRiskDTO(residualRiskProvider.findById(id))
 
-    fun update(id: UUID, requestResidualRiskDTO : RequestResidualRiskDTO): ResponseResidualRiskDTO = ResponseResidualRiskDTO(residualRiskProvider.update(id, ResidualRisk(requestResidualRiskDTO)))
-
+    fun update(id: UUID, requestResidualRiskDTO: RequestResidualRiskDTO): ResponseResidualRiskDTO {
+        var existingResidualRisk = residualRiskProvider.findById(id)
+        existingResidualRisk.probability = requestResidualRiskDTO.probability
+        existingResidualRisk.impact = requestResidualRiskDTO.impact
+        existingResidualRisk.classification = requestResidualRiskDTO.classification
+        existingResidualRisk.action = requestResidualRiskDTO.action
+        existingResidualRisk.risk = requestResidualRiskDTO.risk
+        existingResidualRisk.resolutionDate = requestResidualRiskDTO.resolutionDate
+        existingResidualRisk.status = requestResidualRiskDTO.status
+        return ResponseResidualRiskDTO(residualRiskProvider.update(id, existingResidualRisk))
+    }
     fun delete(id: UUID) = residualRiskProvider.delete(id)
 }

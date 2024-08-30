@@ -18,7 +18,17 @@ class ActionService (private val actionProvider: ActionProvider) {
     //read
     fun findById(id: UUID): ResponseActionDTO = ResponseActionDTO(actionProvider.findById(id))
 
-    fun update(id: UUID, requestActionDTO: RequestActionDTO): ResponseActionDTO = ResponseActionDTO(actionProvider.update(id, Action(requestActionDTO)))
-
+    fun update(id: UUID, requestActionDTO: RequestActionDTO): ResponseActionDTO {
+        var existingAction = actionProvider.findById(id)
+        existingAction.strategy = requestActionDTO.strategy
+        existingAction.description = requestActionDTO.description
+        existingAction.alertDate = requestActionDTO.alertDate
+        existingAction.startDate = requestActionDTO.startDate
+        existingAction.endDate = requestActionDTO.endDate
+        existingAction.hour = requestActionDTO.hour
+        existingAction.comment = requestActionDTO.comment
+        existingAction.captalization = requestActionDTO.captalization
+        return ResponseActionDTO(actionProvider.update(id, existingAction))
+    }
     fun delete(id: UUID) = actionProvider.delete(id)
 }

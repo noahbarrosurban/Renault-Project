@@ -18,7 +18,11 @@ class PilotService (private val pilotProvider: PilotProvider) {
     //read
     fun findById(id: UUID): ResponsePilotDTO = ResponsePilotDTO(pilotProvider.findById(id))
 
-    fun update(id: UUID, requestPilotDTO: RequestPilotDTO): ResponsePilotDTO = ResponsePilotDTO(pilotProvider.update(id, Pilot(requestPilotDTO)))
+    fun update(id: UUID, requestPilotDTO: RequestPilotDTO): ResponsePilotDTO {
+        var existingPilot = pilotProvider.findById(id)
+        existingPilot.name = requestPilotDTO.name
+        return ResponsePilotDTO(pilotProvider.update(id, existingPilot))
+    }
 
     fun delete(id: UUID) = pilotProvider.delete(id)
 }

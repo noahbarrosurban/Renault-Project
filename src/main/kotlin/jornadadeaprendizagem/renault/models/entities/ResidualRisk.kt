@@ -16,26 +16,26 @@ open class ResidualRisk (
     val id : UUID,
 
     @Column(name = "probability")
-    val probability : String,
+    var probability : String,
 
     @Column(name = "impact")
-    val impact : String,
+    var impact : String,
 
     @Column(name = "classification")
-    val classification : String,
+    var classification : String,
 
     @Column(name = "action")
-    val action : String,
+    var action : String,
 
     @Column(name = "risk")
-    val risk : String,
+    var risk : String,
 
     @Column(name = "resolution_date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    val resolutionDate : Date?,
+    var resolutionDate : Date?,
 
     @Column(name = "status")
-    val status : Boolean)
+    var status : Boolean)
 {
 
     constructor(responseResidualRiskDTO : ResponseResidualRiskDTO) : this(

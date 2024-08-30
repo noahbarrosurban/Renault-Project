@@ -19,7 +19,7 @@ open class Pilot (
         val id : UUID,
 
         @Column(name = "name")
-        val name : String){
+        var name : String){
 
     constructor(responsePilotDTO: ResponsePilotDTO) : this(
             id = UUID.randomUUID(),

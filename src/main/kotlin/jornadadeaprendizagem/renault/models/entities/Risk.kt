@@ -16,47 +16,47 @@ open class Risk (
     val id : UUID,
 
     @Column(name = "name")
-    val name : String,
+    var name : String,
 
     @Column(name = "type")
-    val type : String,
+    var type : String,
 
     @Column(name = "departament")
-    val departament : String,
+    var departament : String,
 
     @Column(name = "startdate")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    val startDate : Date?,
+    var startDate : Date?,
 
     @Column(name = "consequence")
-    val consequence : String,
+    var consequence : String,
 
     @Column(name = "project")
-    val project : String,
+    var project : String,
 
     @Column(name = "metier")
-    val metier : String,
+    var metier : String,
 
     @Column(name = "jalon")
-    val jalon : String,
+    var jalon : String,
 
     @Column(name = "futurejalon")
-    val futurejalon : String,
+    var futurejalon : String,
 
     @Column(name = "probability")
-    val probability : String,
+    var probability : String,
 
     @Column(name = "impact")
-    val impact : String,
+    var impact : String,
 
     @Column(name = "classification")
-    val classification : String,
+    var classification : String,
 
     @Column(name = "generalimpact")
-    val generalimpact : String,
+    var generalimpact : String,
 
     @Column(name = "risksituation")
-    val risksituation : String)
+    var risksituation : String)
 {
 
     constructor(responseRiskDTO : ResponseRiskDTO) : this(

@@ -16,30 +16,30 @@ open class Action (
     val id : UUID,
 
     @Column(name = "strategy")
-    val strategy : String,
+    var strategy : String,
 
     @Column(name = "description")
-    val description : String,
+    var description : String,
 
     @Column(name = "alertdate")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    val alertDate : Date?,
+    var alertDate : Date?,
 
     @Column(name = "startdate")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    val startDate : Date?,
+    var startDate : Date?,
 
     @Column(name = "enddate")
-    val endDate : Date?,
+    var endDate : Date?,
 
     @Column(name = "hour")
-    val hour : Date?,
+    var hour : Date?,
 
     @Column(name = "comment")
-    val comment : String,
+    var comment : String,
 
     @Column(name = "captalization")
-    val captalization : String){
+    var captalization : String){
 
     constructor(responseActionDTO : ResponseActionDTO) : this(
         id = UUID.randomUUID(),
