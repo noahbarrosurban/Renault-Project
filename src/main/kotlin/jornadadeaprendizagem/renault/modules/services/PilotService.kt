@@ -10,7 +10,12 @@ import java.util.UUID
 @Service
 class PilotService (private val pilotProvider: PilotProvider) {
 
-    fun create(requestPilotDTO: RequestPilotDTO): ResponsePilotDTO = ResponsePilotDTO(pilotProvider.create(Pilot((requestPilotDTO))))
+    fun create(requestPilotDTO: RequestPilotDTO): ResponsePilotDTO {
+        if (requestPilotDTO.name.isBlank()) {
+            throw IllegalArgumentException("Pilot name cannot be empty")
+        }
+        return ResponsePilotDTO(pilotProvider.create(Pilot(requestPilotDTO)))
+    }
 
     //read
     fun findAll(): List<ResponsePilotDTO> = pilotProvider.findAll().map { ResponsePilotDTO(it) }
