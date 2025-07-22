@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_002
+      author: Noah Barros
+      changes:
+        - createTable:
+            tableName: actions
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                      nullable: false
+                      primaryKey: true
+                      autoIncrement: true
+              - column:
+                  name: strategy
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: alertdate
+                  type: timestamp
+              - column:
+                  name: startdate
+                  type: timestamp
+              - column:
+                  name: enddate
+                  type: timestamp
+              - column:
+                  name: hour
+                  type: timestamp
+              - column:
+                  name: comment
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: captalization
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

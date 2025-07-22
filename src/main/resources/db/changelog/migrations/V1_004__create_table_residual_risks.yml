@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_004
+      author: Noah Barros
+      changes:
+        - createTable:
+            tableName: residual_risks
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: probability
+                  type: varchar(255)
+              - column:
+                  name: impact
+                  type: varchar(255)
+              - column:
+                  name: classification
+                  type: varchar(255)
+              - column:
+                  name: action
+                  type: varchar(255)
+              - column:
+                  name: risk
+                  type: varchar(255)
+              - column:
+                  name: resolution_date
+                  type: date
+              - column:
+                  name: status
+                  type: boolean
